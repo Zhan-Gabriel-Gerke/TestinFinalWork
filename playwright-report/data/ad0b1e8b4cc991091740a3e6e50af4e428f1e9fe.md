@@ -1,0 +1,105 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - list [ref=e3]:
+      - listitem [ref=e4]:
+        - link "Avaleht" [ref=e5] [cursor=pointer]:
+          - /url: index.php
+      - listitem [ref=e6]:
+        - link "Broneeri laud" [ref=e7] [cursor=pointer]:
+          - /url: broneeringud.php
+      - listitem [ref=e8]:
+        - link "Menuu" [ref=e9] [cursor=pointer]:
+          - /url: Menuu.php
+      - listitem [ref=e10]:
+        - link "Broneeringute haldus" [ref=e11] [cursor=pointer]:
+          - /url: adminPanel.php
+      - listitem [ref=e12]:
+        - button "Logi välja (admin)" [ref=e14] [cursor=pointer]
+  - heading "Restorani Menüü" [level=1] [ref=e15]
+  - table [ref=e16]:
+    - rowgroup [ref=e17]:
+      - row "Toidu nimetus Hind (€) Kategooria Tegevused" [ref=e18]:
+        - cell "Toidu nimetus" [ref=e19]
+        - cell "Hind (€)" [ref=e20]
+        - cell "Kategooria" [ref=e21]
+        - cell "Tegevused" [ref=e22]
+      - row "Caesari salat kanaga 8.50 Eelroog Kustuta Muuda" [ref=e23]:
+        - cell "Caesari salat kanaga" [ref=e24]
+        - cell "8.50" [ref=e25]
+        - cell "Eelroog" [ref=e26]
+        - cell "Kustuta Muuda" [ref=e27]:
+          - button "Kustuta" [ref=e29] [cursor=pointer]
+          - button "Muuda" [ref=e31] [cursor=pointer]
+      - row "Seene kreemsupp 6.20 Eelroog Kustuta Muuda" [ref=e32]:
+        - cell "Seene kreemsupp" [ref=e33]
+        - cell "6.20" [ref=e34]
+        - cell "Eelroog" [ref=e35]
+        - cell "Kustuta Muuda" [ref=e36]:
+          - button "Kustuta" [ref=e38] [cursor=pointer]
+          - button "Muuda" [ref=e40] [cursor=pointer]
+      - row "Panna Cotta marjakastmega 6.50 Magustoit Kustuta Muuda" [ref=e41]:
+        - cell "Panna Cotta marjakastmega" [ref=e42]
+        - cell "6.50" [ref=e43]
+        - cell "Magustoit" [ref=e44]
+        - cell "Kustuta Muuda" [ref=e45]:
+          - button "Kustuta" [ref=e47] [cursor=pointer]
+          - button "Muuda" [ref=e49] [cursor=pointer]
+      - row "Šokolaadikook vanillijäätisega 6.80 Magustoit Kustuta Muuda" [ref=e50]:
+        - cell "Šokolaadikook vanillijäätisega" [ref=e51]
+        - cell "6.80" [ref=e52]
+        - cell "Magustoit" [ref=e53]
+        - cell "Kustuta Muuda" [ref=e54]:
+          - button "Kustuta" [ref=e56] [cursor=pointer]
+          - button "Muuda" [ref=e58] [cursor=pointer]
+      - row "Tiramisu 5.90 Magustoit Kustuta Muuda" [ref=e59]:
+        - cell "Tiramisu" [ref=e60]
+        - cell "5.90" [ref=e61]
+        - cell "Magustoit" [ref=e62]
+        - cell "Kustuta Muuda" [ref=e63]:
+          - button "Kustuta" [ref=e65] [cursor=pointer]
+          - button "Muuda" [ref=e67] [cursor=pointer]
+      - row "Grillitud lõhefilee 16.00 Pearoog Kustuta Muuda" [ref=e68]:
+        - cell "Grillitud lõhefilee" [ref=e69]
+        - cell "16.00" [ref=e70]
+        - cell "Pearoog" [ref=e71]
+        - cell "Kustuta Muuda" [ref=e72]:
+          - button "Kustuta" [ref=e74] [cursor=pointer]
+          - button "Muuda" [ref=e76] [cursor=pointer]
+      - row "Kanasupp nuudlitega 7.50 Pearoog Kustuta Muuda" [ref=e77]:
+        - cell "Kanasupp nuudlitega" [ref=e78]
+        - cell "7.50" [ref=e79]
+        - cell "Pearoog" [ref=e80]
+        - cell "Kustuta Muuda" [ref=e81]:
+          - button "Kustuta" [ref=e83] [cursor=pointer]
+          - button "Muuda" [ref=e85] [cursor=pointer]
+      - row "Risoto krevettidega 14.50 Pearoog Kustuta Muuda" [ref=e86]:
+        - cell "Risoto krevettidega" [ref=e87]
+        - cell "14.50" [ref=e88]
+        - cell "Pearoog" [ref=e89]
+        - cell "Kustuta Muuda" [ref=e90]:
+          - button "Kustuta" [ref=e92] [cursor=pointer]
+          - button "Muuda" [ref=e94] [cursor=pointer]
+      - row "rrr 50.00 rrrr Kustuta Muuda" [ref=e95]:
+        - cell "rrr" [ref=e96]
+        - cell "50.00" [ref=e97]
+        - cell "rrrr" [ref=e98]
+        - cell "Kustuta Muuda" [ref=e99]:
+          - button "Kustuta" [ref=e101] [cursor=pointer]
+          - button "Muuda" [ref=e103] [cursor=pointer]
+  - generic [ref=e104]:
+    - heading "Lisa uus toit" [level=2] [ref=e105]
+    - generic [ref=e106]:
+      - generic [ref=e107]: "Toidu nimetus:"
+      - textbox "Toidu nimetus:" [ref=e108]
+      - generic [ref=e109]: "Hind (€):"
+      - spinbutton "Hind (€):" [ref=e110]
+      - generic [ref=e111]: "Kategooria:"
+      - textbox "Kategooria:" [ref=e112]
+      - button "Lisa menüüsse" [ref=e114] [cursor=pointer]
+  - contentinfo [ref=e115]:
+    - separator [ref=e116]
+    - paragraph [ref=e117]: Zhan-Gabriel Gerke © 2025
+```

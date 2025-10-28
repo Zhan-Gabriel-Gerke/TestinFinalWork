@@ -1,11 +1,11 @@
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
-  // Добавляем эту строку для увеличения глобального тайм-аута до 60 секунд
-  timeout: 60000, 
+  timeout: 60000,
+  workers: 1, 
 
   use: {
-    baseURL: 'https://zhan-gabrielgerke24.thkit.ee/php/kaubadKaubagrupid/FinalProject/',
+    baseURL: 'https://zhan-gabrielgerke24.thkit.ee/php/kaubadKaubagrupid/FinalProject/index.php',
     trace: 'on-first-retry'
   },
   testDir: './tests-e2e',

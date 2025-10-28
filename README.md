@@ -1,113 +1,100 @@
 # Project "Restaurant Booking" (FinalProject)
 
-A simple PHP web application for booking tables in a restaurant. It allows users to view the menu and book tables. Administrators can manage bookings and the menu.
+A simple PHP web application for booking tables in a restaurant.
 
-## System Requirements (Application)
+## Application Access
 
-* **OS:** Windows, macOS, or Linux
-* **Runtime:** PHP 7.4+ (based on the code, but PHP 8.0+ recommended)
-* **Web Server:** Apache or Nginx (with PHP-FPM configured)
-* **Database:** MySQL 5.7+ or MariaDB 10.2+
-* **Browser:** Modern browser (Chrome, Firefox, Edge, Safari)
+The application is already deployed and accessible in the cloud at the following URL:
+[https://zhan-gabrielgerke24.thkit.ee/php/kaubadKaubagrupid/FinalProject/](https://zhan-gabrielgerke24.thkit.ee/php/kaubadKaubagrupid/FinalProject/)
 
-## Running the Application (Locally - for Development/Setup)
+**No local installation** of PHP, a web server, or a database is required to use the application or run the E2E tests against it.
 
-1.  **Clone the repository:**
-    ```bash
-    git clone <YOUR_REPOSITORY_URL>
-    cd FinalProject
-    ```
+**Login Credentials:**
+* Administrator: `admin` / `admin`
+* Regular User (if applicable): `teenindaja` / `teenindaja`
 
-2.  **Configure Web Server:**
-    * Use XAMPP, WAMP, MAMP, or a similar stack.
-    * Set the DocumentRoot of your virtual host to the `FinalProject` folder (e.g., `C:/xampp/htdocs/FinalProject` or `/var/www/html/FinalProject`).
-
-3.  **Set up the Database:**
-    * Create a MySQL/MariaDB database (e.g., named `webfinnal`).
-    * Import the table structure and initial data from the provided `.sql` file (You need to create and add this file, e.g., `database.sql`, to the repository).
-    * **Example command line import:**
-        ```bash
-        mysql -u <db_username> -p <database_name> < database.sql
-        ```
-
-4.  **Configure DB Connection:**
-    * Edit the `SRVconf.php` file with your local database credentials:
-        ```php
-        <?php
-        $kasutaja = "your_db_user"; // e.g., "root"
-        $parool = "your_db_password"; // Often empty for local XAMPP
-        $andmebaas = "webfinnal"; // Your database name
-        $serverinimi = "localhost"; // or "127.0.0.1"
-        
-        $yhendus = new mysqli($serverinimi, $kasutaja, $parool, $andmebaas);
-        $yhendus->set_charset( "utf8");
-        // Add connection check (optional but helpful)
-        if ($yhendus->connect_error) {
-           die("Connection failed: " . $yhendus->connect_error);
-        }
-        ?>
-        ```
-    * **IMPORTANT:** Do not commit real passwords to Git! Use this for local setup only. For Zone.ee, you'll have a different configuration file or method (like environment variables if the code is adapted).
-
-5.  **Open in Browser:**
-    * Navigate to the URL configured in step 2. Usually `http://localhost/FinalProject/` or `http://localhost/`. The main page is `index.php`.
-
-6.  **Login Credentials:**
-    * Administrator: `admin` / `admin`
-    * Regular User (if applicable): `teenindaja` / `teenindaja` (Note: `login2.php` uses `password_verify`, so passwords must be hashed correctly in the database).
+---
 
 ## E2E Testing (Playwright)
 
-This project uses Playwright for End-to-End testing against the **live cloud instance**.
+This project uses Playwright for End-to-End testing **against the deployed cloud version of the application**.
 
-### System Requirements for Tests
+### System Requirements (to run E2E tests)
 
-* Node.js v18+
-* NPM (usually comes with Node.js)
-* Browsers (installed automatically by Playwright)
+* **OS:** Windows, macOS, or Linux
+* **Runtime:** Node.js v18+
+* **Package Manager:** NPM (usually installed with Node.js)
+* **Browsers:** Chrome/Chromium (installed automatically by Playwright)
 
-### Running E2E Tests (First Time)
+### Step-by-Step Guide to Run E2E Tests on a Clean Computer
 
-1.  Ensure the application is running and accessible at the cloud URL specified in `playwright.config.ts` (`baseURL`):
-    `https://zhan-gabrielgerke24.thkit.ee/php/kaubadKaubagrupid/FinalProject/`
-2.  Open a terminal in the `FinalProject` folder (where `package.json` is located).
-3.  Install Node.js dependencies:
+1.  **Clone the Repository (if not already done):**
+    ```bash
+    git clone <URL_of_your_test_repository>
+    cd TestinFinalWork
+    ```
+    *Ensure you are in the directory containing the `package.json` file.*
+
+2.  **Install Node.js Dependencies:**
+    Open a terminal in the project directory and run the following command. This will download Playwright and other necessary packages into the `node_modules` folder.
     ```bash
     npm install
+
+    or 
+    
+    npm.cmd install
     ```
-4.  Install Playwright browsers:
+
+3.  **Install Playwright Browsers:**
+    This command downloads the browser binaries (Chromium) that Playwright needs to run the tests.
     ```bash
     npx playwright install
+
+    or 
+    
+    npx.cmd playwright install
     ```
 
-### Running E2E Tests (Standard)
-
-1.  To run all tests in the console:
+4.  **Run E2E Tests:**
+    Use the following **dedicated command** to execute all E2E tests:
     ```bash
     npm run e2e
-    ```
-    * **Note:** If tests fail with timeouts on the Zone.ee hosting, try setting `workers: 1` in `playwright.config.ts` to run tests sequentially instead of in parallel. This reduces server load.
 
-2.  To run tests in the interactive UI mode (useful for debugging):
+    or 
+
+    npm.cmd run e2e
+    ```
+    * **Note:** Test configurations (application URL, number of parallel workers) are defined in `playwright.config.ts`. To avoid potential issues with Zone.ee hosting's DDoS protection or rate limiting, it's recommended to keep `workers: 1` in the config file. This runs tests sequentially, reducing server load.
+
+5.  **(Optional) Run in UI Mode for Debugging:**
+    This command opens a graphical interface for running and analyzing tests step-by-step.
     ```bash
     npm run e2e-ui
+
+    or
+
+    npm.cmd run e2e-ui
     ```
-3.  After the run, the HTML report will be available at `playwright-report/index.html`. Videos and screenshots for failed tests are saved in the `test-results/` folder.
 
-### `.env.example` File (Example for Environment Variables)
+6.  **View Report:**
+    After the tests finish, open the HTML report located at `playwright-report/index.html`. Videos and screenshots for failed tests are saved in the `test-results/` directory.
 
-While the current PHP code doesn't use `.env` files, this is a good practice for storing secrets if tests or future application versions need API keys or other sensitive data outside the codebase.
+### Example Environment Variable File (`.env.example`)
+
+This file demonstrates which environment variables *could* be used. **No secrets (passwords, API keys) should be added here.** The current test setup does not directly use an `.env` file, but it's provided as an example for potential future needs.
 
 ```dotenv
+# .env.example
+
 # Base URL for E2E tests (already configured in playwright.config.ts)
 # BASE_URL=[https://zhan-gabrielgerke24.thkit.ee/php/kaubadKaubagrupid/FinalProject/](https://zhan-gabrielgerke24.thkit.ee/php/kaubadKaubagrupid/FinalProject/)
 
-# Admin credentials (could be used by tests if needed)
+# Admin credentials (could be used by tests if moved out of code)
 # ADMIN_USER=admin
-# ADMIN_PASS=admin
+# ADMIN_PASS=admin_secret_password_from_env
 
-# DB connection details (if moved out of SRVconf.php)
-# DB_HOST=localhost
+# DB connection details (if tests needed direct DB access)
+# DB_HOST=your_db_host
 # DB_DATABASE=webfinnal
-# DB_USERNAME=root
-# DB_PASSWORD=
+# DB_USERNAME=your_db_user
+# DB_PASSWORD=your_secret_db_password
